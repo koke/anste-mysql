@@ -1,0 +1,6 @@
+anste-mysql (0.1-1) unstable; urgency=low
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- Jorge Bernal <jbernal@warp.es>  Mon, 12 Jan 2009 15:16:40 +0100
+

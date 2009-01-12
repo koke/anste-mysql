@@ -1,0 +1,18 @@
+Source: anste-mysql
+Section: admin
+Priority: extra
+Maintainer: Jorge Bernal <jbernal@warp.es>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: anste-mysql
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, anste (>= 0.5)
+Description: Advanced Network Service Testing Environment - MySQL support
+  ANSTE is a testing environment for advanced network services, mainly intended
+  to automatize the integration tests of eBox Platform, furthermore it could be
+  used to other similar purposes.
+  .
+  This package provides extra support for MySQL testing
+  .
+  URL: http://github.com/koke/anste-mysql
