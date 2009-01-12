@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<image>
+    <name>baseimage-mysql-5.1</name>
+    <desc>MySQL 5.1 base image</desc>
+
+    <memory>256</memory>
+
+    <size>800</size>
+
+    <swap>256</swap>
+
+    <install method="debootstrap">
+        <dist>hardy</dist>
+    </install>
+
+    <post-install>
+        <script>install-mysql-5.1.sh</script>
+    </post-install>
+</image>
