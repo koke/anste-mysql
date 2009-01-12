@@ -29,8 +29,7 @@ install:
 	install -d $(DESTDIR)$(DATADIR)/scripts
 	install -m755 scripts/* $(DESTDIR)$(DATADIR)/scripts
 	install -d $(DESTDIR)$(DATADIR)/tests
-	cp -a tests/ebox $(DESTDIR)$(DATADIR)/tests
-	cp -a tests/sample $(DESTDIR)$(DATADIR)/tests
+	cp -a tests/mysql $(DESTDIR)$(DATADIR)/tests
 
 pkg: dist
 	cd $(EXPORT) &&	dpkg-buildpackage -rfakeroot
