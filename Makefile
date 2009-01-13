@@ -12,7 +12,7 @@ distclean:
 	rm -f anste-mysql_$(VERSION)*
 	rm -f *.deb
 
-export:
+export: distclean
 	git archive --format=tar --prefix=$(EXPORT)/ master | tar x
 
 dist: export
