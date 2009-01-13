@@ -32,4 +32,4 @@ install:
 	cp -a tests/mysql $(DESTDIR)$(DATADIR)/tests
 
 pkg: dist
-	cd $(EXPORT) &&	dpkg-buildpackage -rfakeroot
+	cd $(EXPORT) &&	dpkg-buildpackage -rfakeroot -uc -us
