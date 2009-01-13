@@ -39,7 +39,7 @@ install: build
 	dh_installdirs
 
 	# Add here commands to install the package into debian/anste-mysql.
-	$(MAKE) DESTDIR=$(CURDIR)/debian/anste-mysql install
+	$(MAKE) DESTDIR=$(CURDIR)/debian/anste-mysql PREFIX=/usr install
 
 
 # Build architecture-independent files here.
