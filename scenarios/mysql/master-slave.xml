@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+    <name>Master-Slave replication</name>
+    <desc>Simple replication with one master and one slave</desc>
+
+    <host>
+        <name>master</name>
+        <desc>Master MySQL server</desc>
+        <baseimage>baseimage-mysql-5.1</baseimage>
+        <memory>128</memory>
+        <network>
+            <interface type="static">
+                <name>eth1</name>
+                <address>192.168.2.1</address>
+                <netmask>255.255.255.0</netmask>
+            </interface>
+        </network>
+        <post-install>
+            <script>mysql-configure-master.sh</script>
+        </post-install>
+        <files>
+            <file>world.sql</file>
+        </files>
+    </host>
+
+    <host>
+        <name>slave</name>
+        <desc>Slave MySQL server</desc>
+        <baseimage>baseimage-mysql-5.1</baseimage>
+        <memory>128</memory>
+        <network>
+            <interface type="static">
+                <name>eth1</name>
+                <address>192.168.2.2</address>
+                <netmask>255.255.255.0</netmask>
+            </interface>
+        </network>
+        <post-install>
+            <script>mysql-configure-slave.sh</script>
+        </post-install>
+        <files>
+            <file>world.sql</file>
+        </files>
+    </host>
+</scenario>
+
