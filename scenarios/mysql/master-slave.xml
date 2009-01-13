@@ -6,7 +6,7 @@
     <host>
         <name>master</name>
         <desc>Master MySQL server</desc>
-        <baseimage>baseimage-mysql-5.1</baseimage>
+        <baseimage>hardy-mysql-5.1</baseimage>
         <memory>128</memory>
         <network>
             <interface type="static">
@@ -26,7 +26,7 @@
     <host>
         <name>slave</name>
         <desc>Slave MySQL server</desc>
-        <baseimage>baseimage-mysql-5.1</baseimage>
+        <baseimage>hardy-mysql-5.1</baseimage>
         <memory>128</memory>
         <network>
             <interface type="static">
