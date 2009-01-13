@@ -13,5 +13,7 @@ adduser --system --no-create-home mysql
 ./scripts/mysql_install_db
 chown -R root: /usr/local/mysql
 chown -R mysql: /usr/local/mysql/data
+cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql
+update-rc.d mysql defaults
 popd
 echo 'export PATH=/usr/local/mysql/bin:$PATH' >> /etc/profile
