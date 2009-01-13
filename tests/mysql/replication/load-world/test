@@ -1,0 +1,4 @@
+#!/bin/sh
+
+mysqladmin -u root create world
+mysql -u root < /var/local/anste/world.sql

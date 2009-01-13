@@ -1,0 +1,11 @@
+#!/bin/sh
+
+NAME=`mysql world -e "SELECT Name FROM Country WHERE Code = 'ESP'" --batch --skip-column-names`
+
+if [ $? -ne 0 ]; then
+	exit 1;
+fi
+
+if [ $NAME != "Spain" ]; then
+	exit 2
+fi

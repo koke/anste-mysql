@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite>
+    <name>MySQL replication test</name>
+    <desc>
+    Simple MySQL replication test suite
+    </desc>
+    
+    <scenario>mysql/master-slave.xml</scenario>
+
+    <test>
+        <name>LoadWorldIntoMaster</name>
+        <desc>Load the world database into the master.</desc>
+
+        <host>master</host>
+        <dir>load-world</dir>
+    </test>
+
+    <test>
+        <name>CheckWorldInSlave</name>
+        <desc>Check that the world database has been replicated to the slave.</desc>
+
+        <host>slave</host>
+        <dir>check-world</dir>
+    </test>
+
+</suite>
