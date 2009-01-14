@@ -4,7 +4,7 @@ TMPDIR=`mktemp -d /tmp/anste-mysql.XXXXXXXXX`
 MIRROR='mysql.rediris.es'
 MYSQL_VERSION='mysql-5.1.30-linux-i686-glibc23'
 pushd $TMPDIR
-wget http://$MIRROR/Downloads/MySQL-5.1/$MYSQL_VERSION.tar.gz
+wget http://$MIRROR/Downloads/MySQL-5.1/$MYSQL_VERSION.tar.gz || exit 1
 tar xvf $MYSQL_VERSION.tar.gz
 mv $MYSQL_VERSION /usr/local
 ln -s /usr/local/$MYSQL_VERSION /usr/local/mysql
