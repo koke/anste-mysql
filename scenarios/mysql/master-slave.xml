@@ -16,7 +16,7 @@
             </interface>
         </network>
         <post-install>
-            <script>mysql-configure-master.sh</script>
+            <script>configure-replication-master.sh</script>
         </post-install>
         <files>
             <file>world.sql</file>
@@ -36,7 +36,7 @@
             </interface>
         </network>
         <post-install>
-            <script>mysql-configure-slave.sh</script>
+            <script>configure-replication-master.sh</script>
         </post-install>
         <files>
             <file>world.sql</file>
