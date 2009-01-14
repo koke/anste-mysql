@@ -16,4 +16,4 @@ chown -R mysql: /usr/local/mysql/data
 cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql
 update-rc.d mysql defaults
 popd
-echo 'export PATH=/usr/local/mysql/bin:$PATH' >> /etc/profile
+echo 'export PATH=/usr/local/mysql/bin:$PATH' >> /etc/bash.bashrc
