@@ -12,6 +12,7 @@ chmod 644 /etc/my.cnf
 invoke-rc.d mysql restart
 mysql -e "GRANT ALL ON *.* TO 'root'@'192.168.2.2' IDENTIFIED BY 'rootpass'"
 mysql -e "GRANT REPLICATION SLAVE ON *.* TO 'slave'@'192.168.2.2' IDENTIFIED BY 'slavepass'"
+mysql -e "DROP DATABASE IF EXISTS world"
 
 mysqladmin ping
 exit $?

@@ -1,0 +1,5 @@
+USAGE
+=====
+
+- Adjust MIRROR and MYSQL_VERSION in scripts/install-mysql-5.1.sh
+- Download mysql to /var/www (or your apache root)

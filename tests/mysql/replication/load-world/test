@@ -3,3 +3,6 @@
 export PATH=/usr/local/mysql/bin:$PATH
 mysqladmin -u root create world
 mysql -u root world < /var/local/anste/world.sql
+
+mysqlshow | grep -q world
+exit $?
