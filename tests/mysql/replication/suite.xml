@@ -8,6 +8,20 @@
     <scenario>mysql/master-slave.xml</scenario>
 
     <test>
+        <name>SetupMaster</name>
+        <desc>Set up master.</desc>
+
+        <host>master</host>
+        <dir>setup-master</dir>
+    </test>
+    <test>
+        <name>SetupSlave</name>
+        <desc>Set up slave.</desc>
+
+        <host>slave</host>
+        <dir>setup-slave</dir>
+    </test>
+    <test>
         <name>LoadWorldIntoMaster</name>
         <desc>Load the world database into the master.</desc>
 

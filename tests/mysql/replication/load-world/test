@@ -1,4 +1,5 @@
 #!/bin/sh
 
+export PATH=/usr/local/mysql/bin:$PATH
 mysqladmin -u root create world
-mysql -u root < /var/local/anste/world.sql
+mysql -u root world < /var/local/anste/world.sql

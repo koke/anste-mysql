@@ -1,0 +1,31 @@
+#!/bin/sh
+
+export PATH=/usr/local/mysql/bin:$PATH
+HOST=192.168.2.1
+USER=slave
+PASS=slavepass
+MASTER="mysql -h $HOST -u $USER -p$PASS"
+BINLOG=`mysql -h $HOST -u root -prootpass -e 'show master logs' --batch --skip-column-names`
+BINFILE=`echo $BINLOG | cut -d' ' -f 2`
+BINPOS=`echo $BINLOG | cut -d' ' -f 2`
+cat > /etc/my.cnf <<EOF
+[mysqld]
+server-id=2
+log-bin=mysql-bin
+log=mysql.log
+[client]
+user=root
+EOF
+chown root: /etc/my.cnf
+chmod 644 /etc/my.cnf
+invoke-rc.d mysql restart
+mysql -u root -e "SLAVE STOP"
+mysql -u root -e "CHANGE MASTER TO 
+	MASTER_HOST='$HOST', 
+	MASTER_USER='$USER', 
+	MASTER_PASSWORD='$PASS', 
+	MASTER_PORT=3306, 
+	MASTER_LOG_FILE='$BINFILE', 
+	MASTER_LOG_POS=$BINPOS"
+mysql -u root -e "SLAVE START"
+

@@ -1,10 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
 TMPDIR=`mktemp -d /tmp/anste-mysql.XXXXXXXXX`
 MIRROR='mysql.rediris.es'
-MYSQL_VERSION='mysql-5.1.30-linux-i686-glibc23'
-pushd $TMPDIR
-wget http://$MIRROR/Downloads/MySQL-5.1/$MYSQL_VERSION.tar.gz || exit 1
+MYSQL_VERSION='mysql-5.1.30-linux-x86_64-glibc23'
+cd $TMPDIR
+#wget http://$MIRROR/Downloads/MySQL-5.1/$MYSQL_VERSION.tar.gz || exit 1
+wget http://10.6.7.1/$MYSQL_VERSION.tar.gz || exit 1
 tar xvf $MYSQL_VERSION.tar.gz
 mv $MYSQL_VERSION /usr/local
 ln -s /usr/local/$MYSQL_VERSION /usr/local/mysql
@@ -15,5 +16,7 @@ chown -R root: /usr/local/mysql
 chown -R mysql: /usr/local/mysql/data
 cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql
 update-rc.d mysql defaults
-popd
+invoke-rc.d mysql start
+cd -
 echo 'export PATH=/usr/local/mysql/bin:$PATH' >> /etc/bash.bashrc
+echo 'export PATH=/usr/local/mysql/bin:$PATH' >> /etc/profile

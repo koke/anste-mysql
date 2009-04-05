@@ -5,7 +5,7 @@
 
     <memory>256</memory>
 
-    <size>800</size>
+    <size>2048</size>
 
     <swap>256</swap>
 
@@ -13,7 +13,7 @@
         <dist>hardy</dist>
     </install>
 
-    <post-install>
-        <script>install-mysql-5.1.sh</script>
-    </post-install>
+    <packages>
+        <package>wget</package>
+    </packages>
 </image>

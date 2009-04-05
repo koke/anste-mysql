@@ -7,16 +7,17 @@
         <name>master</name>
         <desc>Master MySQL server</desc>
         <baseimage>hardy-mysql-5.1</baseimage>
-        <memory>128</memory>
+        <memory>256</memory>
         <network>
             <interface type="static">
                 <name>eth1</name>
                 <address>192.168.2.1</address>
                 <netmask>255.255.255.0</netmask>
+                <gateway>192.168.2.254</gateway>
             </interface>
         </network>
         <post-install>
-            <script>configure-replication-master.sh</script>
+            <script>install-mysql-5.1.sh</script>
         </post-install>
         <files>
             <file>world.sql</file>
@@ -27,20 +28,37 @@
         <name>slave</name>
         <desc>Slave MySQL server</desc>
         <baseimage>hardy-mysql-5.1</baseimage>
-        <memory>128</memory>
+        <memory>256</memory>
         <network>
             <interface type="static">
                 <name>eth1</name>
                 <address>192.168.2.2</address>
                 <netmask>255.255.255.0</netmask>
+                <gateway>192.168.2.254</gateway>
             </interface>
         </network>
         <post-install>
-            <script>configure-replication-master.sh</script>
+            <script>install-mysql-5.1.sh</script>
         </post-install>
         <files>
             <file>world.sql</file>
         </files>
     </host>
+
+    <host type="router">
+        <name>internet-router</name>
+        <desc>Host that assumes router functions</desc>
+        <baseimage>hardy-mysql-5.1</baseimage>
+
+        <network>
+            <interface type="static">
+                <name>eth1</name>
+                <address>192.168.2.254</address>
+                <netmask>255.255.255.0</netmask>
+                <gateway>10.6.7.1</gateway>
+            </interface>
+        </network>
+    </host>
+ 
 </scenario>
 
