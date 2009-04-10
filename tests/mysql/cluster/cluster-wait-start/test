@@ -1,0 +1,12 @@
+#!/bin/sh
+export PATH=/usr/local/mysql/bin:$PATH
+
+for i in `seq 1 60`; do
+    STARTED=$(ndb_mgm -e 'all status' | grep started | wc -l)
+    if [ $STARTED -eq 2 ]; then
+        exit 0
+    fi
+    sleep 1
+done
+
+exit 1

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+    <name>cluster-two-nodes</name>
+    <desc>MySQL cluster with two nodes</desc>
+
+    <host>
+        <name>ndb1</name>
+        <desc>mysql1, ndb1, ndb_mgm</desc>
+        <baseimage>hardy-mysql-5.1</baseimage>
+        <memory>256</memory>
+        <network>
+            <interface type="static">
+                <name>eth1</name>
+                <address>192.168.2.1</address>
+                <netmask>255.255.255.0</netmask>
+                <gateway>192.168.2.254</gateway>
+            </interface>
+        </network>
+        <post-install>
+            <script>install-mysql-5.1.sh</script>
+        </post-install>
+    </host>
+
+    <host>
+        <name>ndb2</name>
+        <desc>mysql2, ndb2</desc>
+        <baseimage>hardy-mysql-5.1</baseimage>
+        <memory>256</memory>
+        <network>
+            <interface type="static">
+                <name>eth1</name>
+                <address>192.168.2.2</address>
+                <netmask>255.255.255.0</netmask>
+                <gateway>192.168.2.254</gateway>
+            </interface>
+        </network>
+        <post-install>
+            <script>install-mysql-5.1.sh</script>
+        </post-install>
+    </host>
+
+    <host type="router">
+        <name>internet-router</name>
+        <desc>Host that assumes router functions</desc>
+        <baseimage>hardy-mysql-5.1</baseimage>
+
+        <network>
+            <interface type="static">
+                <name>eth1</name>
+                <address>192.168.2.254</address>
+                <netmask>255.255.255.0</netmask>
+                <gateway>10.6.7.1</gateway>
+            </interface>
+        </network>
+    </host>
+ 
+</scenario>

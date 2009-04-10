@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite>
+    <name>mysql-cluster-simple</name>
+    <desc>
+    MySQL cluster test: two nodes
+    </desc>
+    
+    <scenario>mysql/cluster-two-nodes.xml</scenario>
+
+    <test>
+        <name>SetupMgmt</name>
+        <desc>Set up management node.</desc>
+
+        <host>ndb1</host>
+        <dir>setup-mgmt</dir>
+    </test>
+    <test>
+        <name>SetupNdb1</name>
+        <desc>Set up data node 1.</desc>
+
+        <host>ndb1</host>
+        <dir>setup-ndb</dir>
+    </test>
+    <test>
+        <name>SetupNdb2</name>
+        <desc>Set up data node 2.</desc>
+
+        <host>ndb2</host>
+        <dir>setup-ndb</dir>
+    </test>
+    <test>
+        <name>WaitForDataNodes</name>
+        <desc>Wait for data nodes.</desc>
+
+        <host>ndb1</host>
+        <dir>cluster-wait-start</dir>
+    </test>
+    <test>
+        <name>SetupMysql1</name>
+        <desc>Set up sql node 1.</desc>
+
+        <host>ndb1</host>
+        <dir>setup-mysql</dir>
+    </test>
+    <test>
+        <name>SetupMysql2</name>
+        <desc>Set up sql node 2.</desc>
+
+        <host>ndb2</host>
+        <dir>setup-mysql</dir>
+    </test>
+
+</suite>

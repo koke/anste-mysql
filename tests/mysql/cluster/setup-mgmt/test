@@ -1,0 +1,37 @@
+#!/bin/sh
+export PATH=/usr/local/mysql/bin:$PATH
+
+mkdir -p /var/lib/mysql-cluster
+cat > /var/lib/mysql-cluster/config.ini <<EOF
+[ndbd default]
+NoOfReplicas=2
+Datadir=/var/lib/mysql-cluster
+
+[ndb_mgmd]
+Id=1
+HostName=192.168.2.1
+Datadir=/var/lib/mysql-cluster
+
+[ndbd]
+Id=2
+HostName=192.168.2.1
+[ndbd]
+Id=3
+HostName=192.168.2.2
+[mysqld]
+Id=4
+HostName=192.168.2.1
+[mysqld]
+Id=5
+HostName=192.168.2.2
+[mysqld]
+Id=6
+EOF
+cat >> /etc/my.cnf <<EOF
+[ndb_mgmd]
+config-file=/var/lib/mysql-cluster/config.ini
+EOF
+chown root: /etc/my.cnf
+chmod 644 /etc/my.cnf
+
+ndb_mgmd

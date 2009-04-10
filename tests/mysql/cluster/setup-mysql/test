@@ -1,0 +1,12 @@
+#!/bin/sh
+export PATH=/usr/local/mysql/bin:$PATH
+
+mkdir -p /var/lib/mysql-cluster
+cat >> /etc/my.cnf <<EOF
+[mysqld]
+ndbcluster
+ndb-connectstring=192.168.2.1
+EOF
+chown root: /etc/my.cnf
+chmod 644 /etc/my.cnf
+invoke-rc.d mysql restart
