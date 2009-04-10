@@ -2,7 +2,8 @@
 
 TMPDIR=`mktemp -d /tmp/anste-mysql.XXXXXXXXX`
 MIRROR='mysql.rediris.es'
-MYSQL_VERSION='mysql-cluster-gpl-6.3.20-linux-i686-glibc23'
+#MYSQL_VERSION='mysql-5.1.30-linux-x86_64-glibc23'
+MYSQL_VERSION='mysql-cluster-gpl-6.3.20-linux-x86_64-glibc23'
 cd $TMPDIR
 #wget http://$MIRROR/Downloads/MySQL-5.1/$MYSQL_VERSION.tar.gz || exit 1
 wget http://10.6.7.1/$MYSQL_VERSION.tar.gz || exit 1
