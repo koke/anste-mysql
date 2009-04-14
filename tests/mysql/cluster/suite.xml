@@ -49,5 +49,49 @@
         <host>ndb2</host>
         <dir>setup-mysql</dir>
     </test>
+    <test>
+        <name>CreateTable</name>
+        <desc>Create test table in node 1.</desc>
+
+        <host>ndb1</host>
+        <dir>create-test-table</dir>
+    </test>
+    <test>
+        <name>InsertData1</name>
+        <desc>Insert data in node 1.</desc>
+
+        <host>ndb1</host>
+        <dir>insert-data</dir>
+    </test>
+    <test>
+        <name>CountData2</name>
+        <desc>Count data in node 2.</desc>
+
+        <host>ndb2</host>
+        <dir>count-data</dir>
+        <var name='EXPECT' value='1'/>
+    </test>
+    <test>
+        <name>InsertData2</name>
+        <desc>Insert data in node 2.</desc>
+
+        <host>ndb2</host>
+        <dir>insert-data</dir>
+    </test>
+    <test>
+        <name>KillNode2</name>
+        <desc>Kill data node 2.</desc>
+
+        <host>ndb2</host>
+        <dir>kill-data-node</dir>
+    </test>
+    <test>
+        <name>CountData1</name>
+        <desc>Count data in node 1.</desc>
+
+        <host>ndb1</host>
+        <dir>count-data</dir>
+        <var name='EXPECT' value='2'/>
+    </test>
 
 </suite>

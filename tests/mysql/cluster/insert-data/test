@@ -1,0 +1,4 @@
+#!/bin/sh
+export PATH=/usr/local/mysql/bin:$PATH
+
+mysql test -e 'INSERT INTO ndb_anste_test VALUES (123)'

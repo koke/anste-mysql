@@ -1,0 +1,5 @@
+#!/bin/sh
+export PATH=/usr/local/mysql/bin:$PATH
+
+mysql test -e 'DROP TABLE IF EXISTS ndb_anste_test'
+mysql test -e 'CREATE TABLE ndb_anste_test (c1 INT) ENGINE=ndb'

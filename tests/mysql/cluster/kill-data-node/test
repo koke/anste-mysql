@@ -1,0 +1,5 @@
+#!/bin/sh
+export PATH=/usr/local/mysql/bin:$PATH
+
+#killall -9 ndbd
+ps aux | grep ndbd | grep -v grep | awk '{print $2}' | xargs -n1 kill -9

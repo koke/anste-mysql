@@ -1,0 +1,12 @@
+#!/bin/sh
+export PATH=/usr/local/mysql/bin:$PATH
+
+COUNT=`mysql test -e "SELECT COUNT(*) FROM ndb_anste_test" --batch --skip-column-names`
+echo "Count: ::$COUNT::"
+echo "Expect: ::$EXPECT::"
+
+if [ $COUNT -eq $EXPECT ]; then
+    exit 0;
+fi
+
+exit 1;
